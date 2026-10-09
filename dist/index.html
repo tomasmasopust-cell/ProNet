@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ProNet – databáze ochranných řešení a konfigurátor potřebného materiálu.">
+  <title>ProNet · Databáze ochranných řešení</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23151714'/%3E%3Cpath d='M15 48V16h19c11 0 17 6 17 15S45 46 34 46H25v2H15zm10-12h8c5 0 8-2 8-5s-3-5-8-5h-8v10z' fill='%23d7ff39'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <section id="catalog-view" class="catalog-view">
+      <header class="catalog-topbar">
+        <div class="brand-lockup"><div class="brand-mark">P</div><div><h1>PRONET</h1><small>PROTECTIVE SYSTEMS</small></div></div>
+        <div class="catalog-label">Databáze řešení · v1.2</div>
+      </header>
+      <div class="catalog-content">
+        <div class="catalog-intro">
+          <div class="eyebrow">Katalog ochranných systémů</div>
+          <h2>Vyberte chráněný objekt</h2>
+          <p>ProNet nabídne vhodná konstrukční řešení a pro dostupné konfigurace vypočítá potřebný materiál.</p>
+        </div>
+        <section class="catalog-step" aria-labelledby="object-heading">
+          <div class="step-heading"><span>01</span><div><h3 id="object-heading">Typ chráněného objektu</h3><p>Začněte základním druhem stavby nebo infrastruktury.</p></div></div>
+          <div class="choice-grid object-grid">
+            <button type="button" class="choice-card" data-object="building" aria-pressed="true"><span class="choice-code">OBJ-01</span><strong>Budova</strong><small>Střešní a obvodová ochranná řešení</small></button>
+            <button type="button" class="choice-card" data-object="road" aria-pressed="false"><span class="choice-code">OBJ-02</span><strong>Silnice</strong><small>Ochrana liniových dopravních staveb</small></button>
+            <button type="button" class="choice-card" data-object="bridge" aria-pressed="false"><span class="choice-code">OBJ-03</span><strong>Most</strong><small>Ochrana mostních konstrukcí</small></button>
+          </div>
+        </section>
+        <section class="catalog-step" id="building-types" aria-labelledby="building-heading">
+          <div class="step-heading"><span>02</span><div><h3 id="building-heading">Typ budovy</h3><p>Zvolte geometrii střechy chráněného objektu.</p></div></div>
+          <div class="choice-grid subtype-grid">
+            <button type="button" class="choice-card compact" data-building-type="flat" aria-pressed="true"><span class="choice-code">BUD-01</span><strong>Budova s plochou střechou</strong><small>Vodorovná střešní plocha a obvodová ochrana</small></button>
+            <button type="button" class="choice-card compact" data-building-type="pitched" aria-pressed="false"><span class="choice-code">BUD-02</span><strong>Budova se šikmou střechou</strong><small>Šikmé střešní roviny a hřeben</small></button>
+          </div>
+        </section>
+        <section class="catalog-step" id="available-solutions" aria-labelledby="solution-heading">
+          <div class="step-heading"><span>03</span><div><h3 id="solution-heading">Dostupná řešení</h3><p>Vyberte konstrukční systém pro výpočet materiálu.</p></div></div>
+          <article class="solution-card" id="building-solution-card">
+            <div class="solution-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="solution-copy"><div class="solution-meta"><span>PLO-01</span><em>Dostupné</em></div><h4>Předepjatá lanová obálka</h4><p>Parametrická síť svislých a šikmých tyčí, lan a kotev pro budovu s plochou střechou. Výstupem je prostorové schéma, souhrnný kusovník a délky jednotlivých lan.</p><div class="solution-tags"><span>3D schéma</span><span>Kusovník</span><span>Lanové úseky</span></div></div>
+            <button type="button" class="primary-button" id="open-prestressed-envelope">Otevřít konfigurátor</button>
+          </article>
+          <article class="solution-card road-solution" id="road-solution-card" hidden>
+            <div class="solution-graphic road-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="solution-copy"><div class="solution-meta"><span>MSK-01</span><em>Dostupné</em></div><h4>Silnice obecná</h4><p>Silniční koridor pro vlastní délku a šířku. Dvě krajní řady stožárů, boční X-lana, horní síť a samostatná kotva každého stožáru. Samostatná reference revize 03.</p><div class="solution-tags"><span>Vlastní rozměry</span><span>Automatická pole</span><span>Kusovník</span><span>Lanové úseky</span></div></div>
+            <button type="button" class="primary-button" id="open-road-mast">Otevřít konfigurátor</button>
+          </article>
+          <article class="solution-card road-solution solution-planned" id="road-guardrail-solution-card" hidden>
+            <div class="solution-graphic road-graphic guardrail-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="solution-copy"><div class="solution-meta"><span>SIL-02</span><em>Připravujeme</em></div><h4>Silnice se svodidly</h4><p>Samostatná varianta ochrany silničního koridoru se svodidly. Konstrukční pravidla a způsob kotvení budou doplněny; konfigurátor zatím není dostupný.</p><div class="solution-tags"><span>Svodidla</span><span>Pravidla k doplnění</span></div></div>
+            <button type="button" class="primary-button" disabled>Konfigurátor připravujeme</button>
+          </article>
+        </section>
+        <section class="catalog-empty" id="catalog-empty" hidden>
+          <span class="empty-code">PŘIPRAVUJEME</span><h3 id="catalog-empty-title">Další řešení</h3><p id="catalog-empty-text">Pro tuto kategorii zatím není řešení v databázi.</p>
+        </section>
+      </div>
+      <footer class="catalog-footer"><span>PRONET / databáze ochranných řešení</span><span>Pracovní návrhový nástroj</span></footer>
+    </section>
+    <section id="configurator-view" class="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-lockup"><div class="brand-mark">P</div><div><h1>PRONET</h1><small>PROTECTIVE SYSTEMS</small></div></div><span class="version">v1.2</span></div>
+      <button type="button" class="catalog-back" id="back-to-catalog">Zpět na výběr řešení</button>
+      <p class="sidebar-intro">Parametrický návrhový podklad pro ochrannou lanovou obálku budovy.</p>
+      <div class="mode-switch" aria-label="Režim konfigurace">
+        <button type="button" data-mode="parametric" class="active">PARAMETRICKÝ</button>
+        <button type="button" data-mode="reference">REFERENČNÍ</button>
+      </div>
+      <form id="config-form">
+        <fieldset><legend>01 · Budova</legend>
+          <div class="field"><label for="length">Délka</label><div class="input-wrap"><input id="length" name="length" type="number" min="4" max="120" step="0.1" value="20"><span class="unit">m</span></div></div>
+          <div class="field"><label for="width">Šířka</label><div class="input-wrap"><input id="width" name="width" type="number" min="4" max="120" step="0.1" value="12"><span class="unit">m</span></div></div>
+          <div class="field full"><label for="height">Výška</label><div class="input-wrap"><input id="height" name="height" type="number" min="2" step="0.1" value="5"><span class="unit">m</span></div></div>
+        </fieldset>
+        <fieldset><legend>02 · Ochranná obálka</legend>
+          <div class="field"><label for="offsetLeft">Vlevo</label><div class="input-wrap"><input id="offsetLeft" name="offsetLeft" type="number" step="0.1" value="3"><span class="unit">m</span></div></div>
+          <div class="field"><label for="offsetRight">Vpravo</label><div class="input-wrap"><input id="offsetRight" name="offsetRight" type="number" step="0.1" value="3"><span class="unit">m</span></div></div>
+          <div class="field"><label for="offsetFront">Vpředu</label><div class="input-wrap"><input id="offsetFront" name="offsetFront" type="number" step="0.1" value="3"><span class="unit">m</span></div></div>
+          <div class="field"><label for="offsetBack">Vzadu</label><div class="input-wrap"><input id="offsetBack" name="offsetBack" type="number" step="0.1" value="3"><span class="unit">m</span></div></div>
+          <div class="field"><label for="roofOffset">Vrchol svislé tyče</label><div class="input-wrap"><input id="roofOffset" name="roofOffset" type="number" min="1" max="15" step="0.1" value="3" aria-describedby="roof-height-rule"><span class="unit">m</span></div></div>
+          <div class="field"><label for="mansardHeight">Výška mansardy</label><div class="input-wrap"><input id="mansardHeight" name="mansardHeight" type="number" min="0.1" max="15" step="0.1" value="0.5" aria-describedby="roof-height-rule"><span class="unit">m</span></div></div>
+          <div class="field"><label for="roofEdgeSetback">Odsazení svislé tyče</label><div class="input-wrap"><input id="roofEdgeSetback" name="roofEdgeSetback" type="number" min="0" max="20" step="0.1" value="0.5" aria-describedby="roof-height-rule"><span class="unit">m</span></div></div>
+          <div class="field"><label for="braceAngle">Úhel šikmé tyče</label><div class="input-wrap"><input id="braceAngle" type="number" value="69.05" readonly aria-describedby="roof-height-rule"><span class="unit">°</span></div></div>
+          <p id="roof-height-rule" class="field-hint">Výšky jsou od ploché střechy. Mansarda určuje výšku uložení šikmé tyče; její délka 2 m a úhel 69,05° vůči svislici jsou převzaté z 3D modelu.</p>
+        </fieldset>
+        <fieldset><legend>03 · Konstrukční pravidla</legend>
+          <div class="field"><label for="module">Referenční modul</label><div class="input-wrap"><input id="module" name="module" type="number" min="1.5" step="0.1" value="4"><span class="unit">m</span></div></div>
+          <div class="field"><label for="hubs">Vnitřní uzly (auto)</label><div class="input-wrap"><input id="hubs" name="hubs" type="number" min="1" step="1" value="2" readonly aria-describedby="hub-rule"><span class="unit">ks</span></div></div>
+          <p id="hub-rule" class="field-hint">Síť podle délky, šířky a modulu; hraniční tyče patří oběma sousedním uzlům.</p>
+          <div class="field full"><label for="reserve">Materiálová rezerva</label><div class="input-wrap"><input id="reserve" name="reserve" type="number" min="0" step="1" value="15"><span class="unit">%</span></div></div>
+        </fieldset>
+      </form>
+      <button type="button" class="secondary" id="reset-parametric">Obnovit pracovní hodnoty</button>
+      <p class="sidebar-note">Výstup je parametrický návrhový podklad. Nenahrazuje statický, geotechnický, požární ani dynamický posudek celé sestavy.</p>
+    </aside>
+    <section class="workspace">
+      <header class="topbar"><div><div class="eyebrow" id="mode-detail">PLO-01-PARAM · generovaná topologie</div><h2>Předepnutá lanová obálka</h2><p id="view-caption">Parametrický model · společná geometrie pro nákres i kusovník</p></div><span class="status" id="status-label">NÁVRHOVÝ PODKLAD</span></header>
+      <div class="dashboard">
+        <article class="card visual-card">
+          <div class="card-head"><div><h3>Prostorové schéma</h3><p>Aktualizuje se přímo ze vstupní geometrie.</p></div><div class="legend"><span><i class="l-roof-network"></i>horní síť</span><span><i class="l-support-link"></i>propojení tyčí</span><span><i class="l-side-diagonal"></i>boční diagonály</span><span><i class="l-inclined-perimeter"></i>vnější spoje</span><span><i class="l-rod"></i>trubky</span></div></div>
+          <div class="layer-controls" aria-label="Viditelnost komponent">
+            <button type="button" data-layer="building" aria-pressed="true">Budova</button>
+            <button type="button" data-layer="rods" aria-pressed="true">Tyče</button>
+            <button type="button" data-layer="cables" aria-pressed="true">Lana</button>
+            <button type="button" data-layer="anchors" aria-pressed="true">Kotvy</button>
+          </div>
+          <div class="model-wrap"><svg id="model-view" viewBox="0 0 820 500" role="img" aria-label="Prostorové schéma ochranné lanové obálky"></svg></div>
+          <div class="metric-strip"><div class="metric"><span>Obálka</span><strong id="metric-envelope">—</strong></div><div class="metric"><span>Horní úroveň</span><strong id="metric-top">—</strong></div><div class="metric"><span>Pole střechy</span><strong id="metric-fields">—</strong></div><div class="metric"><span>Lano</span><strong id="metric-cable">—</strong></div></div>
+        </article>
+        <div class="right-stack">
+          <article class="card bom-card"><div class="card-head"><div><h3>Kusovník PLO-01</h3><p>Geometrické a objednávané množství jsou oddělené.</p></div></div><div class="table-scroll"><table class="summary-table"><thead><tr><th>Položka</th><th>Množství</th><th>Jedn.</th></tr></thead><tbody id="bom-body"></tbody></table></div></article>
+          <article class="card checks-card"><h3>Omezení a otevřené kontroly</h3><p class="basis" id="basis-line">—</p><ul id="checks"></ul></article>
+        </div>
+      </div>
+      <article class="card cable-schedule-card">
+        <div class="card-head"><div><h3>Jednotlivé lanové úseky</h3><p id="cable-schedule-note">Geometrické délky bez výrobních přídavků.</p></div><button type="button" class="export-button" id="download-cables">Stáhnout CSV</button></div>
+        <div class="table-scroll schedule-scroll"><table class="schedule-table"><thead><tr><th>Kód</th><th>Typ lana</th><th>Spojení uzlů</th><th>Délka</th></tr></thead><tbody id="cable-schedule-body"></tbody></table></div>
+      </article>
+      <div class="footer-note mono">PRONET / PLO-01 / pracovní model 1.2</div>
+    </section>
+    </section>
+    <section id="road-configurator-view" class="app-shell" hidden>
+      <aside class="sidebar">
+        <div class="brand"><div class="brand-lockup"><div class="brand-mark">P</div><div><h1>PRONET</h1><small>PROTECTIVE SYSTEMS</small></div></div><span class="version">v1.2</span></div>
+        <button type="button" class="catalog-back" id="road-back-to-catalog">Zpět na výběr řešení</button>
+        <p class="sidebar-intro">Zadejte délku a šířku koridoru. Pole, stožáry, lana a sítě se přepočítají společně.</p>
+        <div class="mode-switch"><button type="button" data-road-mode="parametric" class="active" aria-pressed="true">Vlastní rozměry</button><button type="button" data-road-mode="reference" aria-pressed="false">Reference rev. 03</button></div>
+        <form id="road-config-form">
+          <fieldset><legend>01 · Chráněný úsek</legend>
+            <div class="field"><label for="road-length">Délka koridoru</label><div class="input-wrap"><input id="road-length" name="length" type="number" min="0.01" max="15000" step="any" value="30"><span class="unit">m</span></div></div>
+            <div class="field"><label for="road-width">Šířka</label><div class="input-wrap"><input id="road-width" name="width" type="number" min="0.01" max="120" step="any" value="6"><span class="unit">m</span></div></div>
+            <div class="field full"><label for="road-height">Výška</label><div class="input-wrap"><input id="road-height" type="text" value="6" readonly><span class="unit">m</span></div></div>
+            <div class="field"><label for="road-module">Největší délka pole</label><div class="input-wrap"><input id="road-module" name="module" type="number" min="1" max="30" step="any" value="15"><span class="unit">m</span></div></div>
+            <div class="field"><label for="road-bays">Počet polí · automaticky</label><div class="input-wrap"><input id="road-bays" type="text" value="2" readonly><span class="unit">ks</span></div></div>
+            <p class="field-hint">Délku rozdělíme na stejná pole nejvýše zvolené délky. Koridor neprodlužujeme. Výška odpovídá 6m stožáru; modul 15 m je pracovní hodnota z reference, ne potvrzené únosné rozpětí.</p>
+          </fieldset>
+          <fieldset><legend>02 · Výkaz sítě</legend>
+            <div class="field full"><label for="road-net-reserve">Materiálová rezerva sítě</label><div class="input-wrap"><input id="road-net-reserve" name="netReserve" type="number" min="0" max="40" step="1" value="0"><span class="unit">%</span></div></div>
+            <p class="field-hint">Rezerva se přidává pouze k ploše sítě. Délky lan zůstávají geometrické, protože výrobní přídavky závisejí na konkrétních koncovkách a napínání.</p>
+          </fieldset>
+          <fieldset><legend>03 · Pravidlo sestavy</legend>
+            <p class="field-hint">Dvě krajní řady · stožár na každém konci pole · kříž patky ze 2 průběžných dílů po 2 m · vlastní patka se 4 Y kolíky + 1 samostatný Y kolík kotevního lana pro každý stožár · boční X v každém poli · příčné lano přes zadanou šířku. Kotvy lan jsou 4 m vně každé řady. Historická reference PDF opravu patek nezahrnuje. Nové rozměry vyžadují ověření nosné soustavy.</p>
+          </fieldset>
+        </form>
+        <button type="button" class="secondary" id="reset-road">Obnovit pracovní hodnoty</button>
+        <p class="sidebar-note">Koncepční geometrický a materiálový podklad. Nejde o výrobní dokumentaci, statické schválení ani důkaz odolnosti proti UAV.</p>
+      </aside>
+      <section class="workspace">
+        <header class="topbar"><div><div class="eyebrow" id="road-mode-detail">MSK-01-PARAM · parametrické pravidlo</div><h2>Silnice obecná</h2><p id="road-view-caption">Silniční koridor · vlastní rozměry podle topologie revize 03</p></div><span class="status" id="road-status-label">NÁVRHOVÝ PODKLAD</span></header>
+        <div class="dashboard">
+          <article class="card visual-card">
+            <div class="card-head"><div><h3>Schéma koridoru</h3><p>Dvě řady stožárů, horní lana, boční X a vlastní kotvy.</p></div><div class="legend"><span><i class="l-rod"></i>stožáry</span><span><i class="l-roof-network"></i>horní lana</span><span><i class="l-side-diagonal"></i>boční X</span><span><i class="l-inclined-perimeter"></i>kotvení G</span></div></div>
+            <div class="model-wrap"><svg id="road-model-view" viewBox="0 0 820 500" role="img" aria-label="Schéma silničního koridoru s modulárními stožáry"></svg></div>
+            <div class="metric-strip"><div class="metric"><span>Koridor</span><strong id="road-metric-envelope">—</strong></div><div class="metric"><span>Stožáry</span><strong id="road-metric-masts">—</strong></div><div class="metric"><span>Lanové úseky</span><strong id="road-metric-segments">—</strong></div><div class="metric"><span>Lana celkem</span><strong id="road-metric-cable">—</strong></div></div>
+            <p class="basis" id="road-layout-rule">—</p>
+          </article>
+          <div class="right-stack">
+            <article class="card bom-card"><div class="card-head"><div><h3>Kusovník MSK-01</h3><p id="road-bom-rule-note">Vlastní díly stožárů a sdílená lana; jen hotové Y kolíky, bez pásoviny. Souhrny se nepřičítají znovu.</p></div><button type="button" class="export-button" id="download-road-bom">Stáhnout kusovník</button></div><div class="table-scroll"><table class="summary-table"><thead><tr><th>Položka</th><th>Množství</th><th>Jedn.</th></tr></thead><tbody id="road-bom-body"></tbody></table></div></article>
+            <article class="card checks-card"><h3>Omezení a otevřené kontroly</h3><p class="basis" id="road-basis-line">—</p><ul id="road-checks"></ul></article>
+          </div>
+        </div>
+        <article class="card cable-schedule-card">
+          <div class="card-head"><div><h3>Jednotlivé lanové úseky</h3><p id="road-cable-schedule-note">Geometrické délky bez výrobních přídavků.</p></div><button type="button" class="export-button" id="download-road-cables">Stáhnout CSV</button></div>
+          <div class="table-scroll schedule-scroll"><table class="schedule-table"><thead><tr><th>Kód</th><th>Typ lana</th><th>Spojení uzlů</th><th>Délka</th></tr></thead><tbody id="road-cable-schedule-body"></tbody></table></div>
+        </article>
+        <div class="footer-note mono">PRONET / MSK-01-REV03 / zdroj NT-S-03 · 08. 09. 2026</div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>
